@@ -1,0 +1,5 @@
+func main() {
+	var name = "Mike"
+	var age = 20
+	println(strfmt"my name is ${name}, I am ${&age} years old this year")
+}
