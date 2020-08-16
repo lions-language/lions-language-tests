@@ -1,5 +1,25 @@
-func main() {
+func test1() {
 	var name = "Mike"
 	var age = 20
+	/*
+	 * strfmt 用于在字符串中使用变量, 并打印
+	 * 默认情况下, 在 ${ ... } 中填入变量名
+	 * */
 	println(strfmt"my name is ${name}, I am ${&age} years old this year")
+}
+
+func test2() {
+	var a = 1
+	var b = 2
+	var s = "Mike"
+	/*
+	 * 如果不想使用默认的 ${} 方式, 可以指定 start 字符串和 end 字符串
+	 * 下面就指定在 { ... } 中的识别为变量
+	 * */
+	println(strfmt<"{"><"}">"hello {s}: {&a}, {&b}")
+}
+
+func main() {
+	// test1()
+	test2()
 }
