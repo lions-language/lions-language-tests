@@ -1,0 +1,213 @@
+/*
+func main() {
+	var a = &1
+	var b = a + &2
+	var c = &b
+	var d = c
+	{
+		var d = a
+		println(d)
+	}
+	println(b)
+}
+*/
+
+/*
+func main() {
+	var a = "hello"
+	var b = a + " world"
+	println(b)
+}
+*/
+
+/*
+func main() {
+	var s = "Mike"
+	var a = 1
+	println(strfmt"hello ${s}, ${&a}")
+}
+*/
+
+/*
+func add(v1: &u8, v2: &u8) -> u16 {
+	var r = v1 + v2
+	// println(&r)
+	return r
+}
+
+func add(v: &u8) -> u16 {
+	var r = v + v
+	// println(r)
+	return r
+}
+
+func print() {
+	var s = "Mike"
+	var a = 1
+	{
+		println(strfmt"hello ${s}, ${&a}", "xxx")
+	}
+}
+
+func main() {
+	print()
+	var v1 = add(&1, &2)
+	println(strfmt"r: ${v1}")
+	println(v1)
+	/*
+	var s = "Mike"
+	var a = 1
+	println(strfmt"hello ${s}, ${&a}")
+	*/
+}
+*/
+
+/*
+func add(v1: &u8, v2: &u8) -> u16 {
+	var r = v1 + v2
+	// println(&r)
+	return r
+}
+
+func print() {
+	println("1")
+	return
+	println("2")
+}
+
+func main() {
+	println(add(&1, &2))
+	var s = "Mike"
+	var a = &1
+	println(s, a)
+	print()
+}
+*/
+
+/*
+func add(v1: &u8, v2: &u8) -> &u8 {
+	return v1
+}
+
+func main() {
+	var a = 1
+	var b = 2
+	println(add(&a, &b))
+}
+*/
+
+/*
+func add(v1: &u8, v2: &u8) -> u16 {
+	var r = v1 + v2
+	// println(&r)
+	return r
+}
+
+func main() {
+	add(&1, &2)
+}
+*/
+
+/*
+func add(v1: &u8) -> &u8 {
+	return v1
+}
+*/
+
+/*
+*/
+func add1(v1: &u8, v2: &u8) -> u16 {
+	{
+		{
+			return v1 + v2
+		}
+	}
+}
+
+func add2(v1: &u8, v2: &u8, v3: u8) -> &u8 {
+	{
+		{
+			return v2
+		}
+	}
+	println("xxx")
+}
+func add2(v1: &u8, v2: u8, v3: &u8, v4: u8) -> &u8 {
+	{
+		{
+			return v3
+		}
+	}
+	println("xxx")
+}
+
+func add2(v1: &u8) -> &u8 {
+	{
+		{
+			return v1
+		}
+	}
+}
+
+func add3(v1: u8) -> u8 {
+	return v1
+}
+
+func add4(v: &u8) -> &u8 {
+	{
+		return v
+	}
+}
+
+func add5(v1: &u8) -> &u8 {
+	{
+		return add4(v1)
+	}
+}
+
+func add6(v2: &u8) -> &u8 {
+	{
+		return add5(v2)
+	}
+}
+
+func add7(v: u8) -> u8 {
+	{
+		return v
+	}
+}
+
+func add8(v: u8) -> u8 {
+	{
+		return add7(v)
+	}
+}
+
+func add9(v: u8) -> u8 {
+	{
+		return add8(v)
+	}
+}
+
+func add10(v1: &u8, v2: ...&u8) -> &u8 {
+	return v2...[2]
+	// return v1
+}
+
+func main() {
+	// println(&add1(&1, &2))
+	// println(&add2(&1))
+	// println(&add2(&1, &2, 3))
+	println(&add2(&1, 2, &3, 4))
+	// println(&add3(5))
+	// println(&add2(&1, &2))
+	// println(add1(&1, &2))
+	// println(add(&1, &2))
+	// println(&a)
+	// println(add(&1))
+	// println(add6(&1))
+	// println(&add9(1))
+	println(add10(&1, &2, &3, &4, &5))
+	println(&(&1+&2))
+}
+
