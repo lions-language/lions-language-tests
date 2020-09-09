@@ -1,0 +1,49 @@
+struct DateTime {
+	year: u16,
+	month: u8,
+	day: u8
+}
+
+struct Cert {
+	no: &string,
+	create_time: DateTime
+}
+
+struct UserInfo {
+	name: &string,
+	age: u8,
+	cert: Cert
+}
+
+struct Test1 {
+	f1: string
+}
+
+struct Test2 {
+	f2: Test1
+}
+
+struct Test3 {
+	f3: Test2
+}
+
+func test1() {
+	var user_info = UserInfo{
+		name: "Mike",
+		cert: Cert {
+			no: "123456",
+			create_time: DateTime{
+				month: 12,
+				year: 2020,
+				day: 12
+			}
+		},
+		age: 20
+	}
+	user_info.cert
+}
+
+func main() {
+	test1()
+}
+
