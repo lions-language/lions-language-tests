@@ -40,7 +40,8 @@ func test1() {
 		},
 		age: 20
 	}
-	user_info.cert
+	println("name:", user_info.name)
+	println("cert no:", user_info.cert.no)
 }
 
 func main() {
