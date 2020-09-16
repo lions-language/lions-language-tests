@@ -27,6 +27,11 @@ struct Test3 {
 	f3: Test2
 }
 
+func call_struct(user_info: &UserInfo) {
+	println("name:", user_info.name)
+	println("age", user_info.age)
+}
+
 func test1() {
 	var user_info = UserInfo{
 		name: "Mike",
