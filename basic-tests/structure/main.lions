@@ -27,12 +27,20 @@ struct Test3 {
 	f3: Test2
 }
 
-func call_struct(user_info: &UserInfo) {
-	println("name:", user_info.name)
-	println("age", user_info.age)
+func struct_call(user_info: &UserInfo) -> &Cert {
+	{
+		var cert = &user_info.cert
+		{
+			println(cert.no)
+			println("name:", user_info.name)
+			println(user_info.cert.create_time.year)
+		}
+		return cert
+	}
 }
 
 func test1() {
+	var a = 1
 	var user_info = UserInfo{
 		name: "Mike",
 		cert: Cert {
@@ -45,8 +53,15 @@ func test1() {
 		},
 		age: 20
 	}
+	/*
 	println("name:", user_info.name)
 	println("cert no:", user_info.cert.no)
+	println("create year:", &user_info.cert.create_time.year)
+	println("create year:", &user_info.cert.create_time.year)
+	println("create year:", &user_info.cert.create_time.year)
+	*/
+	var cert = struct_call(&user_info)
+	println(&cert.create_time.day)
 }
 
 func main() {
