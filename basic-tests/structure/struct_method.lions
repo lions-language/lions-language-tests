@@ -14,11 +14,40 @@ struct UserInfo {
 	age: u8,
 	cert: Cert
 }
+
+/*
+ * 以下两个函数都是 Test1 的方法, 函数名相同, 但是 self 一个是 move, 一个是 ref
+ * 这种情况下是可以同时存在的, lions-language 可以对不同的 属性进行重载 (move / ref)
+ * */
+struct Test1 {
+}
+
+func [self: &Test1] print() {
+	println("Test1 obejct ref")
+}
+
+func [self: Test1] print() {
+	println("Test1 object move")
+}
+
+func test1() {
+	var obj = Test1 {
+	}
+
+	obj.&print()
+	obj.print()
+}
+
+/*
+ * 如何调用以上两个方法呢
+ * 使用 .& 调用 ref 相关的方法
+ * 使用 . 调用 move 相关的方法
+ * */
 func [this: &UserInfo] get_cert() -> &Cert {
 	return &this.cert
 }
 
-func test_struct_member_call() {
+func test2() {
 	var user_info = UserInfo {
 		name: "Mike",
 		cert: Cert {
@@ -31,11 +60,11 @@ func test_struct_member_call() {
 		},
 		age: 20
 	}
-	var cert = &user_info.get_cert()
+	var cert = user_info.get_cert()
 	println(cert.no)
 }
 
 func main() {
-	test_struct_member_call()
+	test1()
 }
 
