@@ -7,3 +7,10 @@ func test(v1: &u8, v2: ...&u8) -> &u8 {
 	 * */
 	return v2...[0]
 }
+
+func add(v: u8) -> u8 {
+    if v == 0 {
+        return 0
+    }
+    return v + add(&v - 1)
+}
