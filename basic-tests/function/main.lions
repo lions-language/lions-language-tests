@@ -14,3 +14,14 @@ func add(v: u8) -> u8 {
     }
     return v + add(&v - 1)
 }
+
+func test1(v: u8) {
+    if v == 0 {
+        return
+    }
+    test2()
+}
+
+func test2() {
+    test1(&v - 1)
+}
