@@ -1,0 +1,8 @@
+module math
+
+fn print() {
+	println("hello")
+}
+
+fn test() {
+}

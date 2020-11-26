@@ -1,0 +1,36 @@
+/*
+func main() {
+	var a = &1
+	var b = a + &2
+	var c = &b
+	var d = c
+	{
+		var d = a
+		println(d)
+	}
+	println(b)
+}
+*/
+
+/*
+func main() {
+	var a = "hello"
+	var b = a + " world"
+	println(b)
+}
+*/
+
+/*
+func main() {
+	var s = "Mike"
+	var a = 1
+	println(strfmt"hello ${s}, ${&a}")
+}
+*/
+
+import "local:math" as m
+
+func main() {
+	m::print()
+}
+
