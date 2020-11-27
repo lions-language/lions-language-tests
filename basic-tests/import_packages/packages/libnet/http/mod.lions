@@ -1,0 +1,6 @@
+module http
+
+fn get() {
+	println("http get")
+}
+

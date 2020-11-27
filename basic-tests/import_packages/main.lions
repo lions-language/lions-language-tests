@@ -1,0 +1,6 @@
+import "package:libnet:http"
+
+func main() {
+	http::get()
+}
+
