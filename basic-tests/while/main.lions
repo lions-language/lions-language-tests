@@ -1,0 +1,13 @@
+func while_test() {
+	var i = &0
+	while i < &10 {
+		println(i)
+		++i
+	}
+	println(i)
+}
+
+func main() {
+	while_test()
+}
+
